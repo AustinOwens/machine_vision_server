@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Created on Jun 17, 2022
 
@@ -10,6 +11,9 @@ import struct
 import threading
 
 import cv2
+
+# Enter IP address of device running the machine_vision_server.py
+IP_ADDRESS = "<IP_ADDRESS>"
 
 
 class SocketClientThread(threading.Thread):
@@ -28,9 +32,9 @@ class SocketClientThread(threading.Thread):
 
 
 img_config_thread = SocketClientThread(
-    ip="10.168.90.20", port=9001, name="Img_Config_Thread"
+    ip=IP_ADDRESS, port=9001, name="Img_Config_Thread"
 )
-img_thread = SocketClientThread(ip="10.168.90.20", port=9002, name="Img_Thread")
+img_thread = SocketClientThread(ip=IP_ADDRESS, port=9002, name="Img_Thread")
 
 
 # ROI Trackbars
